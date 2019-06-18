@@ -35,7 +35,7 @@ def func1(firstArg, *args):
 fruits = ['Banana','Strawberry', 'Pineapple']
 func1("Hello My name is Juan", *fruits)
 
-def func2(firstArg,**kwargs):
+def func2(firstArg, **kwargs):
     print("First arg: {}".format(firstArg))
     for key, value in kwargs.items():
         print('{} ==> {}'.format(key, value))
