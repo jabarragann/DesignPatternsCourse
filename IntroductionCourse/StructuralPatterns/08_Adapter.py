@@ -22,6 +22,10 @@ class Adapter:
         self.__dict__.update(adapted_method)
 
     def __getattr__(self, attr):
+        #This method get called if the attr does not exists in the object.
+        #When calling obj.speak() this method don't get called
+        #But when using obj.name() this method will get called.
+        print("Called with " + attr)
         return getattr(self._object,attr)
 
 
@@ -29,9 +33,9 @@ objects =[]
 korean = Korean()
 british = British()
 objects.append(Adapter(korean, speak=korean.speak_korean))
-objects.append(Adapter(british,speak = british.speak_english))
+objects.append(Adapter(british, speak=british.speak_english))
 
 
 for obj in objects:
-    print("'{}' says '{}'".format(obj.name,obj.speak()))
+    print("'{}' says '{}'".format(obj.name2,obj.speak()))
 
